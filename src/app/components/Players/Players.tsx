@@ -7,14 +7,15 @@ import { Button, Divider, FormControl, IconButton, Input, InputAdornment, InputL
 
 type PlayersProps = {
     players: string[],
-    addPlayer: (player: string) => void,
-    removePlayer: (player: string) => void
+    addPlayer: (playerName: string) => void,
+    removePlayer: (playerIndex: number) => void
 }
 
 const Players = ({players, addPlayer, removePlayer}: PlayersProps) => {
     const [addingPlayer, setAddingPlayer] = useState(false);
     const [playerName, setPlayerName] = useState("");
-    
+    const [error, setError] = useState("");
+
     const handleAdd = () => {
         addPlayer(playerName);
         setAddingPlayer(false);
@@ -43,7 +44,7 @@ const Players = ({players, addPlayer, removePlayer}: PlayersProps) => {
                 return (
                     <PlayerCard key={index}>
                         {player}
-                        <RemoveCircleOutlineIcon onClick={() => removePlayer(player)}/>
+                        <RemoveCircleOutlineIcon onClick={() => removePlayer(index)}/>
                     </PlayerCard>
                 )
             })}

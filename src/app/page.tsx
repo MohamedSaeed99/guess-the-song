@@ -6,13 +6,14 @@ import Players from "./components/Players/Players";
 export default function Home() {
   const [players, setPlayers] = useState<string[]>(["Jack"]);
 
-  const handleRemovePlayer = (playername: string) => {
-    const updatedPlayers = players.filter(player => player !== playername);
+  const handleRemovePlayer = (playerIndex: number) => {
+    const updatedPlayers = [...players]
+    updatedPlayers.splice(playerIndex, 1);
     setPlayers(updatedPlayers);
   }
 
-  const handleAddPlayer = (playername: string) => {
-    setPlayers([...players, playername])
+  const handleAddPlayer = (playerName: string) => {
+    setPlayers([...players, playerName])
   }
 
   return (
