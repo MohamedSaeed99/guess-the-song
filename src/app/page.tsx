@@ -1,11 +1,12 @@
 "use client"
-import { Container, MusicServicesContainer, ServiceButton, ServiceButtonContainer, TitleContainer } from "./page.styles";
+import { Container, MusicServicesContainer, ServiceButton, ServiceButtonContainer, StartGameButton, StartGameContainer, TitleContainer } from "./page.styles";
 import { useState } from "react";
 import Players from "./components/Players/Players";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [players, setPlayers] = useState<string[]>(["Jack"]);
-
+  const [players, setPlayers] = useState<string[]>([]);
+  const { push } = useRouter();
   const handleRemovePlayer = (playerIndex: number) => {
     const updatedPlayers = [...players]
     updatedPlayers.splice(playerIndex, 1);
@@ -14,6 +15,10 @@ export default function Home() {
 
   const handleAddPlayer = (playerName: string) => {
     setPlayers([...players, playerName])
+  }
+
+  const handleStartGame = () => {
+    push('/game');
   }
 
   return (
@@ -31,6 +36,9 @@ export default function Home() {
           </ServiceButtonContainer>
         </MusicServicesContainer>
         <Players players={players} addPlayer={handleAddPlayer} removePlayer={handleRemovePlayer} />
+        <StartGameContainer>
+          <StartGameButton onClick={handleStartGame}>Start Game</StartGameButton>
+        </StartGameContainer>
       </Container>
     </main>
   );

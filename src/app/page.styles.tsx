@@ -36,3 +36,13 @@ export const ServiceButton = styled(Button)({
     padding: "5px 10px",
     boxShadow: "4px 4px 4px 0 rgba(0, 0, 0, 0.25)",
 });
+
+export const StartGameContainer = styled(Box)({
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center"
+});
+
+export const StartGameButton = styled(Button)({
+    border: "1px solid black"
+});
