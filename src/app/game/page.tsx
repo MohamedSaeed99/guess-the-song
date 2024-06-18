@@ -10,7 +10,6 @@ const Game = () => {
     }
     return (
         <Container>
-
             <Button onClick={handleEndGame}>End Game</Button>
         </Container>
     )

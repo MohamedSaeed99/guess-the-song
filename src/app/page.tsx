@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const [players, setPlayers] = useState<string[]>([]);
   const { push } = useRouter();
+
   const handleRemovePlayer = (playerIndex: number) => {
     const updatedPlayers = [...players]
     updatedPlayers.splice(playerIndex, 1);
@@ -14,7 +15,7 @@ export default function Home() {
   }
 
   const handleAddPlayer = (playerName: string) => {
-    setPlayers([...players, playerName])
+    setPlayers([...players, playerName]);
   }
 
   const handleStartGame = () => {
@@ -31,7 +32,9 @@ export default function Home() {
         <MusicServicesContainer>
           <>Music Service</>
           <ServiceButtonContainer>
-            <ServiceButton style={{background: "#1DB954", color: "#191414", border: "1px solid white"}}>Spotify</ServiceButton>
+            <a href={OauthUrl()}>
+              <ServiceButton style={{background: "#1DB954", color: "#191414", border: "1px solid white"}}>Spotify</ServiceButton>
+            </a>
             <ServiceButton style={{background: "red", color: "white"}}>Apple Music</ServiceButton>
           </ServiceButtonContainer>
         </MusicServicesContainer>
