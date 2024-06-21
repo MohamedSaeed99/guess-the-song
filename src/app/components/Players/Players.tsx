@@ -14,7 +14,6 @@ type PlayersProps = {
 const Players = ({players, addPlayer, removePlayer}: PlayersProps) => {
     const [addingPlayer, setAddingPlayer] = useState(false);
     const [playerName, setPlayerName] = useState("");
-    const [error, setError] = useState("");
 
     const handleAdd = () => {
         addPlayer(playerName);
@@ -29,7 +28,6 @@ const Players = ({players, addPlayer, removePlayer}: PlayersProps) => {
 
     const handleKeyDown = (event: { key: string; }) => {
         if (event.key === 'Enter') {
-            console.log("Here")
             handleAdd();
         }
     }
