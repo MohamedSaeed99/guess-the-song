@@ -1,3 +1,3 @@
-const OauthUrl = () => {
-    return `${process.env.SPOTIFY_AUTH_ENDPOINT}?client_id=${process.env.CLIENT_ID}`
+export const OauthUrl = () => {
+    return 'http://localhost:8080/spotify/login'
 }
