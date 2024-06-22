@@ -2,8 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { Buffer } from "buffer";
 import axios from 'axios';
-
-
 dotenv.config();
 const app = express();
 const port = 8080;
