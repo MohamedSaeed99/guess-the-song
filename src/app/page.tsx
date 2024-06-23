@@ -24,7 +24,6 @@ export default function Home() {
   }
 
   return (
-    <main>
       <Container>
         <TitleContainer>
           Welcome to Guess the Song!!!
@@ -44,6 +43,5 @@ export default function Home() {
           <StartGameButton onClick={handleStartGame}>Start Game</StartGameButton>
         </StartGameContainer>
       </Container>
-    </main>
   );
 }

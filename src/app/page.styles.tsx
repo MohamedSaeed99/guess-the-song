@@ -10,8 +10,7 @@ export const PlayButton = styled(Button)({
 });
 
 export const Container = styled(Box)({
-    width: "100%",
-    height: "100%",
+    margin: "0 90px",
     display: "flex",
     flexDirection: "column",
     gap: "24px"
@@ -38,9 +37,9 @@ export const ServiceButton = styled(Button)({
 });
 
 export const StartGameContainer = styled(Box)({
+    width: "100%",
     display: "flex",
     justifyContent: "flex-end",
-    alignItems: "center"
 });
 
 export const StartGameButton = styled(Button)({

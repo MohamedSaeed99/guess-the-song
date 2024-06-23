@@ -2,9 +2,16 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { Buffer } from "buffer";
 import axios from 'axios';
+import session from 'express-session'
 dotenv.config();
 const app = express();
 const port = 8080;
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+}));
 
 const scope = "streaming user-read-private user-modify-playback-state"
 
@@ -32,7 +39,9 @@ app.get('/callback', async (req, res) => {
     }
   });
 
-  // TODO: Save tokens received in a session
+  req.session['access_token'] = response.data.access_token;
+  req.session['refresh_token'] = response.data.refresh_token;
+  req.session['expires_at'] = Date.now() + response.data.expires_in;
 
   res.redirect(process.env.FE_APPLICATION)
 });
